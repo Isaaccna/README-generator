@@ -30,7 +30,7 @@ const questions = () => {
           {
             type: "input",
             name: "contributors",
-            message: "Contibutors to the project:",
+            message: "Contributors to the project:",
           },
           {
             type: "input",
@@ -68,17 +68,14 @@ const questions = () => {
 function init() {
   questions()
   .then((answers) => {
-    console.log(answers);
+    fs.writeFile("./readme/README.md", generateMarkdown(answers) , (err) => {
+      if (err) throw writer;
+      console.log("README.md generated!");
+    })
   })
-  .catch((error) => {
-    if (error.isTtyError) {
-      // Prompt couldn't be rendered in the current environment
-    } else {
-      // Something else went wrong
-    }
-  });
- 
 }
+    
+   
 
 // Function call to initialize app
 init();

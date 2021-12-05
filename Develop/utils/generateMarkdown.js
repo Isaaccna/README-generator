@@ -1,4 +1,4 @@
-// function that returns a license badge based on which license is passed in
+// function that returns a license badge based on which license is passed in (licenses badges found and edited on https://shields.io/category/license)
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   let licenseBadge = "";
@@ -56,8 +56,8 @@ function renderLicenseSection(license) {
     return "";
   }
   if (license === "MIT") {
-    licenseSection = `This application is covered under the MIT License. \n
-    Copyright © 2021 Chaitra Srinivasamurthy.`;
+    licenseSection = ` Copyright © 2021 Isaac Andrade. \n
+     This application is covered under the MIT License.`;
   }
   if (license === "GNU GPLv3") {
     licenseSection = `Copyright © 2021 Free Software Foundation, Inc. <https://fsf.org/> \n
@@ -72,18 +72,54 @@ function renderLicenseSection(license) {
     Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.`;
   }
   if (license === "Apache License 2.0") {
-    licenseSection = `Licensed under the Apache License, Version 2.0 (the "License"). \n
-    Copyright © 2021 Chaitra Srinivasamurthy;
-    `;
+    licenseSection = ` Copyright © 2021 Isaac Andrade. \n
+     Licensed under the Apache License, Version 2.0 (the "License").`;
   }
   return licenseSection;
 }
 
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
+function generateMarkdown(data ) {
+  return `# ${data.title} ${data.license.map(renderLicenseBadge).join(" ")}
 
-`;
-}
+  ## Overview
+
+  ${data.description}
+
+  ## Table of Contents
+
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contributing](#contributing)
+  - [Tests](#tests)
+  - [Questions](#questions)
+  - [License](#license)
+
+    ## Installation
+
+    ${data.installation}
+    ## Usage
+
+    ${data.usage}
+
+    ## Contributing
+
+    ${data.contributors}
+    ## Tests
+
+    ${data.tests}
+
+    ## Questions
+
+    For any questions about the project, please visit my 
+    GitHub Profile: 
+    [${data.github}](https://github.com/${data.github}) \n
+    or reach out to me @ ${data.email}
+
+    ## License
+
+    ${renderLicenseLink(data.license[0])}
+    ${renderLicenseSection(data.license[0])}`;
+};
 
 module.exports = generateMarkdown;

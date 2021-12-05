@@ -69,7 +69,7 @@ function init() {
   questions()
   .then((answers) => {
     fs.writeFile("./readme/README.md", generateMarkdown(answers) , (err) => {
-      if (err) throw writer;
+      if (err) throw err;
       console.log("README.md generated!");
     })
   })

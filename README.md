@@ -11,7 +11,7 @@
    - [Usage](#usage)
    - [Contributing](#contributing)
    - [Tests](#tests)
-   - [Questions](#questions)git stat
+   - [Questions](#questions)
    - [License](#license)
 
   ## Installation

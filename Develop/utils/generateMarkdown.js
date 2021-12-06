@@ -98,6 +98,7 @@ function generateMarkdown(data ) {
     ## Installation
 
     ${data.installation}
+
     ## Usage
 
     ${data.usage}
@@ -117,7 +118,7 @@ function generateMarkdown(data ) {
     or reach out to me @ ${data.email}
 
     ## License
-
+    
     ${renderLicenseLink(data.license[0])}
     ${renderLicenseSection(data.license[0])}`;
 };
